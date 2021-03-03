@@ -1,7 +1,7 @@
 function post_to_slack() {
   const json = getJsonByApi();
   const text = getEventList(json);
-  const channel = "connpass";
+  const channel = "イベント運営";
   post(text, channel);
 }
 
