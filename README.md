@@ -1,6 +1,10 @@
 # slackbot-coderdojo-iyo
 This bot posts next event of this month to a slack channel.
 
+## slackのtokenについて
+ConfigSample.gs を参考に `YOUR-ACCESS-TOKEN` を所定のtokenに書き換えて
+あらかじめプロパティに保存しておいてください。
+
 ## References
 - [connpass API リファレンス](https://connpass.com/about/api/)
 - [GASで無料で定期的に実行するSlackボットを作る](https://bioid.hatenablog.jp/entry/2020/04/09/221644)
