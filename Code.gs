@@ -23,9 +23,8 @@ function post(text, channel){
 function getJsonByApi(){
   var api = "https://connpass.com/api/v1/event/";
   api += "?series_id=8962";
-  var thisMonth = new Date();
-  thisMonth = Utilities.formatDate(thisMonth, 'Asia/Tokyo', 'yyyyMM');
-  api += "&ym=" + thisMonth;
+  api += "&order=3"
+  api += "&count=1"
   return UrlFetchApp.fetch(api).getContentText();
 }
 
