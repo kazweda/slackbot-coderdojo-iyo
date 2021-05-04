@@ -1,30 +1,30 @@
 function post_to_slack() {
-  const json = getJsonByApi();
+  const props = PropertiesService.getScriptProperties().getProperties();
+  const json = getJsonByApi(props.series_id);
   const text = getEventList(json);
-  const channel = "イベント運営";
-  post(text, channel);
+  post(text, props.channel, props.token);
 }
 
-function post(text, channel){
+function post(text, channel, token){
   const data = {
     "text":text,
     "channel":channel
   }
-  const token = PropertiesService.getScriptProperties().getProperty("token");
   var options = {
     "method":"post",
     "contentType":"application/json",
-    "headers":{"Authorization":"Bearer "+token},
+    "headers":{"Authorization":"Bearer " + token},
     "payload":JSON.stringify(data)
   }
   var ret = UrlFetchApp.fetch("https://slack.com/api/chat.postMessage",options);
 }
 
-function getJsonByApi(){
+function getJsonByApi(series_id){
   var api = "https://connpass.com/api/v1/event/";
-  api += "?series_id=8962";
+  api += "?series_id=" + series_id;
   api += "&order=3"
   api += "&count=1"
+  Logger.log(api)
   return UrlFetchApp.fetch(api).getContentText();
 }
 
