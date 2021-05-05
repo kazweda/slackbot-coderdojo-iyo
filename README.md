@@ -1,9 +1,12 @@
 # slackbot-coderdojo-iyo
-This bot posts next event of this month to a slack channel.
+This bot posts next event of a connpass community to the Slack channel.
 
-## slackのtokenについて
-ConfigSample.gs を参考に `YOUR-ACCESS-TOKEN` を所定のtokenに書き換えて
-あらかじめプロパティに保存しておいてください。
+## プロパティの設定について
+ConfigSample.gs を参考に次の項目を適宜書き換えて実行することによってプロパティに保存してください。
+
+- `YOUR-ACCESS-TOKEN`   Slackで発行されたtoken
+- `YOUR-SLACK-CHANNEL`  投稿するSlackチャンネル
+- `YOUR-COMMUNITY-ID`   connpassのコミュニティID
 
 ## References
 - [connpass API リファレンス](https://connpass.com/about/api/)
