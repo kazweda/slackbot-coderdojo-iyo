@@ -1,6 +1,10 @@
 function setConfigSample(){
-  // PropertiesService.getScriptProperties().setProperty("token", "YOUR-ACCESS-TOKEN");
-  // PropertiesService.getScriptProperties().setProperty("channel", "YOUR-SLACK-CHANNEL");
-  // PropertiesService.getScriptProperties().setProperty("series_id", "YOUR-COMMUNITY-ID");
-  Logger.log('sample');
+  const scriptProperties = PropertiesService.getScriptProperties();
+  scriptProperties.setProperties({
+    'token': 'YOUR-ACCESS-TOKEN',
+    'channel': 'YOUR-SLACK-CHANNEL',
+    'series_id': 'YOUR-COMMUNITY-ID'
+  });
+  const props = PropertiesService.getScriptProperties().getProperties();
+  Logger.log(props);
 }
