@@ -2,11 +2,11 @@
 This bot posts next event of a connpass community to the Slack channel.
 
 ## プロパティの設定について
-ConfigSample.gs を参考に次の項目を適宜書き換えて実行することによってプロパティに保存してください。
+ConfigSample.gs の次の項目を適宜書き換えて実行することでプロパティに保存できます。
 
-- `YOUR-ACCESS-TOKEN`   Slackで発行されたtoken
-- `YOUR-SLACK-CHANNEL`  投稿するSlackチャンネル
-- `YOUR-COMMUNITY-ID`   connpassのコミュニティID
+- `MY-ACCESS-TOKEN`   Slackで発行されたtoken
+- `MY-SLACK-CHANNEL`  投稿するSlackチャンネル
+- `MY-COMMUNITY-ID`   connpassのコミュニティID
 
 ## References
 - [connpass API リファレンス](https://connpass.com/about/api/)
