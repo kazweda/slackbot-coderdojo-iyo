@@ -22,22 +22,33 @@ function post(text, channel, token){
 function getJsonByApi(series_id){
   var api = "https://connpass.com/api/v1/event/";
   api += "?series_id=" + series_id;
-  api += "&order=3"
-  api += "&count=1"
-  Logger.log(api)
+  api += "&order=3";
+  api += "&count=1";
+  // api += "&ym=202106";
+  Logger.log(api);
   return UrlFetchApp.fetch(api).getContentText();
 }
 
 function getEventList(json){
   const jsonData = JSON.parse(json);
   var result = "";
+
   for( i in jsonData.events ){
     var startAt = new Date(jsonData.events[i].started_at);
+
+    const today = new Date();
+    if (startAt < today) {
+      continue;
+    }
+
     var startDateTime = Utilities.formatDate(startAt, 'Asia/Tokyo', 'MM-dd HH:mm');
     result += startDateTime + " ";
     result += jsonData.events[i].title + "\n";
     result += jsonData.events[i].event_url + "\n";
-  } 
+  }
+  if (result == "") {
+    result = "イベントは見つかりませんでした。";
+  }
   Logger.log( result );
   return result;
 }
