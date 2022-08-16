@@ -24,7 +24,6 @@ function getJsonByApi(series_id){
   api += "?series_id=" + series_id;
   api += "&order=3";
   api += "&count=1";
-  // api += "&ym=202106";
   Logger.log(api);
   return UrlFetchApp.fetch(api).getContentText();
 }
